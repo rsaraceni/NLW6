@@ -1,15 +1,15 @@
-/src
-   /assets
-   /components
-   /contexts
-   /hooks
-   /pages
-   /services
-   /styles
+- /src
+   - /assets
+   - /components
+   - /contexts
+   - /hooks
+   - /pages
+   - /services
+   - /styles
 
-   App.tsx
-   index.tsx
-   react-app-env.d.tsxsetupTests.ts
-   setupTests.ts
+   - App.tsx
+   - index.tsx
+   - react-app-env.d.tsxsetupTests.ts
+   - setupTests.ts
 
    
