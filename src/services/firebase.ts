@@ -23,5 +23,7 @@ firebase.initializeApp(firebaseConfig);
 //para quando for chamar esses recursos não precisa ficar digitando tudo
 //firebase.auth() - resumido = auth
 //firebase.database(); - resumido = database
-export const auth = firebase.auth();
-export const database = firebase.database();
+const auth = firebase.auth();
+const database = firebase.database();
+
+export { firebase, auth, database }
