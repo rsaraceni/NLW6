@@ -28,7 +28,7 @@ export function Home(){
          console.log(result);
       })
 
-      history.push('/rooms/new')
+      //history.push('/rooms/new')
    }
 
    return(
