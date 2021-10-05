@@ -8,14 +8,12 @@ export function Button(){
 
    const [counter, setCounter] = useState(0);
 
-
    //imutabilidade: a partir do momento que uma variavel foi criada dentro do estado de um component, ela não sofre alterações
    //sempre cria uma nova informação baseada naquela informação anterior
    function increment() {
       //setou um novo valor, porem baseado no que já tinha antes
       setCounter(counter + 1);
    }
-
 
    return(
       //todos os atributos no React é no formato camelcase
