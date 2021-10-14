@@ -1,3 +1,4 @@
+//quando for um botão e não um link tem que importar do React o useHistory
 import { useHistory } from 'react-router';
 
 import { auth, firebase } from '../services/firebase';
@@ -12,9 +13,12 @@ import '../styles/auth.scss';
 import '../styles/button.scss'
 
 export function Home(){
+   //defina dentro do componente uma const(precisa estar dentro do componente)
+   //toda function que começa com use é um Hook no React e todo Hook precisa estar dentro do componente,
+   //pois ele faz uso de informações de dentro do componente
    const history = useHistory();
 
-   //para o link do buttom
+   //para o botão logar e criar uma sala
    function handleCreateRoom(){
 
       //autenticação do usuário
@@ -24,11 +28,12 @@ export function Home(){
       //passa comom parametro o provider
       //depois do user logado, vai apresentar um resultado
       auth.signInWithPopup(provider).then(result => {
-
          console.log(result);
-      })
 
-      history.push('/rooms/new')
+         //chamo a const history e mando para a rota que eu quero enviar o user
+         //envio para criação de sala logo após o login
+         history.push('/rooms/new')
+      })
    }
 
    return(

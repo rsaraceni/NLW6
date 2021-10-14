@@ -1,3 +1,4 @@
+//para trocar o href do buttom por <Link to="/"></Link>
 import { Link } from 'react-router-dom';
 
 import illustrationImg from '../assets/images/illustration.svg';
