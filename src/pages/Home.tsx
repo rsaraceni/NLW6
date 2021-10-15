@@ -1,14 +1,12 @@
-import { useContext } from 'react';
 //quando for um botão e não um link tem que importar do React o useHistory
 import { useHistory } from 'react-router';
-
-import { AuthContext } from '../App';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
 import { Button } from '../components/Button';
+import { useAuth } from '../hooks/UseAuth';
 
 import '../styles/auth.scss';
 import '../styles/button.scss'
@@ -19,11 +17,10 @@ export function Home(){
    //pois ele faz uso de informações de dentro do componente
    const history = useHistory();
 
-   const { user, signInWithGoogle } = useContext(AuthContext)
+   const { user, signInWithGoogle } = useAuth()
 
    //para o botão logar e criar uma sala
    async function handleCreateRoom(){
-
       if(!user){
         await signInWithGoogle()
       }
