@@ -1,7 +1,8 @@
+import { useContext } from 'react';
 //quando for um botão e não um link tem que importar do React o useHistory
 import { useHistory } from 'react-router';
 
-import { auth, firebase } from '../services/firebase';
+import { AuthContext } from '../App';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -18,22 +19,18 @@ export function Home(){
    //pois ele faz uso de informações de dentro do componente
    const history = useHistory();
 
+   const { user, signInWithGoogle } = useContext(AuthContext)
+
    //para o botão logar e criar uma sala
-   function handleCreateRoom(){
+   async function handleCreateRoom(){
 
-      //autenticação do usuário
-      const provider = new firebase.auth.GoogleAuthProvider();
+      if(!user){
+        await signInWithGoogle()
+      }
 
-      //abre o login do Google como popup e mantem o user na tela do App
-      //passa comom parametro o provider
-      //depois do user logado, vai apresentar um resultado
-      auth.signInWithPopup(provider).then(result => {
-         console.log(result);
-
-         //chamo a const history e mando para a rota que eu quero enviar o user
-         //envio para criação de sala logo após o login
-         history.push('/rooms/new')
-      })
+      //chamo a const history e mando para a rota que eu quero enviar o user
+      //envio para criação de sala logo após o login
+      history.push('/rooms/new')
    }
 
    return(
